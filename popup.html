@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contentStyle.css">
+    <title>Intraday QTY,SL & TP</title>
+</head>
+<body>
+    <div id="floating-extension">
+       
+        <div id="floating-extension-header">Intraday QTY,SL & TP</div>
+        <label for="investment">Investment Amount</label>
+        <input type="number" id="investment" placeholder="Enter investment amount" value="100000">
+        
+        <label for="price">Stock Price</label>
+        <input type="number" id="price" placeholder="Enter stock price" >
+        
+        <label for="stoploss">Stop-Loss %</label>
+        <div class="input-wrapper">
+            <input type="number" id="stoploss" value="0.5">
+            <span id="loss-amount" class="amount-display loss"></span>
+        </div>
+        
+        <label for="target">Target %</label>
+        <div class="input-wrapper">
+            <input type="number" id="target" value="1">
+            <span id="profit-amount" class="amount-display profit"></span>
+        </div>
+         <div id="tab-title">Loading...</div>
+		 
+		  <div id="investment-amount">Loading...</div>
+        <div class="result">
+            <p>Quantity: <span id="quantity" class="quantity"></span></p>
+            <p>Stop-Loss Price: <span id="stopLossPrice" class="stop-loss"></span></p>
+            <p>Target Price: <span id="targetPrice" class="target"></span></p>
+        </div>
+    </div>
+    <script src="floatingLogic.js"></script>
+</body>
+</html>

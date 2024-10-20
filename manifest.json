@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Intraday QTY,SL & TP - By Karthik288m",
+  "version": "1.0",
+  "permissions": ["storage", "tabs"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  }
+}

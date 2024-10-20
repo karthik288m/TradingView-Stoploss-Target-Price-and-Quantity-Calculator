@@ -1,0 +1,293 @@
+/* Base styles and variables */
+:root {
+    --color-blue: #d7dace;
+    --color-yellow: #ffe9b3;
+    --color-light-orange: #ffdc74;
+    --color-orange: #ffc176;
+    --text-color: #2C3E50;
+    --border-radius: 12px;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+    min-width: 300px;
+    max-width: 300px;
+}
+
+#floating-extension {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, var(--color-yellow), var(--color-light-orange));
+    padding: 16px;
+    border-radius: var(--border-radius);
+}
+
+#floating-extension-header {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+#floating-extension-header::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-orange);
+    border-radius: 2px;
+}
+
+/* Tab Title styling */
+#tab-title {
+    font-size: 14px; /* Slightly larger for better visibility */
+    color: var(--text-color);
+    font-weight: bold; /* Make it bold */
+    margin-bottom: 10px; /* Adjusted spacing */
+    text-align: center; /* Center align for a neat appearance */
+}
+
+/* Investment Amount styling */
+#investment-amount {
+    font-size: 12px; /* Consistent font size */
+    font-weight: bold; /* Bold for emphasis */
+    color: var(--text-color); /* Using the text color for consistency */
+    margin-top: 10px; /* Added margin for spacing */
+    text-align: center; /* Center align for consistency */
+}
+
+/* Input Container */
+.input-group {
+    background-color: var(--color-blue);
+    padding: 16px;
+    border-radius: var(--border-radius);
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+}
+
+/* Input styling */
+label {
+    display: block;
+    margin: 8px 0 4px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-color);
+    position: relative;
+    padding-left: 12px;
+}
+
+label::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-orange);
+}
+
+input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 12px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: var(--transition);
+    box-sizing: border-box;
+    background: white;
+    color: var(--text-color);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--color-orange);
+    box-shadow: 0 0 0 3px rgba(255, 157, 61, 0.2);
+}
+
+/* Results section styling */
+.result {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.result p {
+    margin: 0;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.result p::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+}
+
+/* Result values styling with side indicators */
+.result p:nth-child(1) {
+    background-color: rgba(196, 225, 246, 0.3);
+}
+
+.result p:nth-child(1)::before {
+    background-color: #2196F3;
+}
+
+.result p:nth-child(2) {
+    background-color: rgba(254, 238, 145, 0.3);
+}
+
+.result p:nth-child(2)::before {
+    background-color: #F44336;
+}
+
+.result p:nth-child(3) {
+    background-color: rgba(255, 189, 115, 0.3);
+}
+
+.result p:nth-child(3)::before {
+    background-color: #4CAF50;
+}
+
+.quantity, .stop-loss, .target {
+    font-weight: 600;
+    font-size: 15px;
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+.quantity {
+    color: #2196F3;
+    background-color: rgba(33, 150, 243, 0.1);
+}
+
+.stop-loss {
+    color: #F44336;
+    background-color: rgba(244, 67, 54, 0.1);
+}
+
+.target {
+    color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.1);
+}
+
+/* Remove input number arrows */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Placeholder styling */
+input::placeholder {
+    color: #999;
+}
+
+/* Hover animations */
+input[type="number"]:hover {
+    transform: translateY(-1px);
+}
+
+.result p:hover {
+    transform: translateX(2px);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result p {
+    animation: slideIn 0.3s ease-out forwards;
+    animation-delay: calc(var(--i, 0) * 0.1s);
+}
+
+.result p:nth-child(1) { --i: 1; }
+.result p:nth-child(2) { --i: 2; }
+.result p:nth-child(3) { --i: 3; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-blue);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-orange);
+    border-radius: 3px;
+}
+/* Add this to your existing CSS file */
+
+.input-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.input-wrapper input[type="number"] {
+    width: 100%;
+    padding-right: 60px; /* Make space for the amount display */
+    box-sizing: border-box;
+}
+
+.amount-display {
+    position: absolute;
+    right: 5px;
+    top: 40%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    font-size: 1.5em;
+    pointer-events: none; /* Allows clicking through to the input */
+}
+
+.loss {
+    color: red;
+}
+
+.profit {
+    color: green;
+}
+
+/* Optional: Style the input fields */
+input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Hide spinner for number inputs */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
